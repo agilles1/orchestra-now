@@ -1,4 +1,12 @@
 class ServicesController < ApplicationController
+    def show
+        @service = Service.find(params[:id])
+    end
+    
+    def calendar
+
+    end
+
     def new
         @service = Service.new
         @program = ServiceWork.find_by(service_id: @service.id)
@@ -11,10 +19,6 @@ class ServicesController < ApplicationController
         else
             render :new
         end
-    end
-
-    def show
-        @service = Service.find(params[:id])
     end
 
     def index 

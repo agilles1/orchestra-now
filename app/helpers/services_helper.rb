@@ -8,7 +8,6 @@ module ServicesHelper
         end
     end
 
-
     def service_duration_format(service)
         "#{service.start_time.strftime('%I:%M %P')} - #{service.end_time.strftime('%I:%M %P')}"
     end
