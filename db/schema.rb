@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_11_012931) do
+ActiveRecord::Schema.define(version: 2021_01_11_132050) do
 
   create_table "composers", force: :cascade do |t|
     t.string "full_name"
@@ -18,6 +18,22 @@ ActiveRecord::Schema.define(version: 2021_01_11_012931) do
     t.datetime "birth_year"
     t.datetime "death_year"
     t.string "epoch"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "service_works", force: :cascade do |t|
+    t.integer "order"
+    t.integer "service_id"
+    t.integer "works_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.boolean "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

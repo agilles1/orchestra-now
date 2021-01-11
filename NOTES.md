@@ -25,7 +25,6 @@ UserServices
 * action:boolean (create or update)
 
 Service
-* date
 * start_time
 * end_time
 * type:boolean (Rehearsal or Concert)
