@@ -44,5 +44,13 @@ Composer
 * birth_year
 * death_year
 
+# First Sprint
+ * Set-up models DONE
+ * Services Page (new '/services/new', calendar view '/' and services index 'services#index')
+
+
+# REACH GOALS
+* Styling
+* Create new works and composers
 
 
