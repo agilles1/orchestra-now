@@ -5,9 +5,20 @@ class Service < ApplicationRecord
     has_many :users, through: :user_services
     validates :start_time, presence: true
     validates :end_time, presence: true
+    scope :rehearsals, -> {where(concert: false)}
+    scope :all_chron, -> {order(:start_time)}
+    scope :future, -> {where("start_time > '#{DateTime.current}'")}
    
     def program
         self.works.order(:order)
+    end
+
+    def date
+        self.start_time.strftime('%A, %B %d, %Y')
+    end
+
+    def index_hash
+        
     end
 
 end
