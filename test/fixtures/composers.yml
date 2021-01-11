@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ffull_name: MyString
+  last_name: MyString
+  birth_year: 2021-01-10 20:26:42
+  death_year: 2021-01-10 20:26:42
+  epoch: MyString
+  timestamps: MyString
+
+two:
+  ffull_name: MyString
+  last_name: MyString
+  birth_year: 2021-01-10 20:26:42
+  death_year: 2021-01-10 20:26:42
+  epoch: MyString
+  timestamps: MyString
