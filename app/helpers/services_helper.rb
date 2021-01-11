@@ -20,4 +20,5 @@ module ServicesHelper
         "#{service_date_format(service)} - #{service_duration_format(service)} - #{rehearsal_or_concert(service)}"
     end
 
+    
 end
