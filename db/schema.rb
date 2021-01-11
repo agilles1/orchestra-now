@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_11_132902) do
+ActiveRecord::Schema.define(version: 2021_01_11_155702) do
 
   create_table "composers", force: :cascade do |t|
     t.string "full_name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2021_01_11_132902) do
     t.integer "composer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "insturmentation"
   end
 
 end
