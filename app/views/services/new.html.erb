@@ -1,4 +1,7 @@
 <h2> New Service </h2>
+<% @service.errors.full_messages.each do |error| %>
+    <p><i><%=error%><i></p>
+<% end %>
 
 <%= form_for @service do |f| %>
     <p><%= f.label :Start %>

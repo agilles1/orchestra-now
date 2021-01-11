@@ -5,15 +5,18 @@ class ServicesController < ApplicationController
     end
 
     def create 
-        binding.pry
         @service = Service.new(service_params)
+            binding.pry
         if @service.save
-            redirect_to services_path(@service)
+            redirect_to service_path(@service)
+        else
+            render :new
+            binding.pry
         end
     end
 
     def show
-        @service = Service.find()
+        @service = Service.find(params[:id])
         @program = ServiceWork.find_by(service_id: @service.id)
     end
 
