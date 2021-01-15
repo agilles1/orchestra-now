@@ -13,6 +13,7 @@ class ServicesController < ApplicationController
     end
 
     def create 
+        binding.pry
         @service = Service.new(service_params)
         if @service.save
             redirect_to service_path(@service)
@@ -25,13 +26,9 @@ class ServicesController < ApplicationController
         @services = Service.future.all_chron
     end
 
-    def add_works
-
-    end
-
     private 
 
     def service_params
-        params.require(:service).permit(:date, :start_time, :end_time, :concert)
+        params.require(:service).permit(:date, :start_time, :end_time, :concert, :works)
     end
 end

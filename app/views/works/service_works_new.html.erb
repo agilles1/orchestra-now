@@ -1,0 +1,4 @@
+<%= form_for @program do |f| %>
+        <%= f.number_field :order%>        <%= f.collection_select('work_id[]', Work.all_alpha, :id, :title_with_composer, {:prompt => "Please Select a Work"}, { include_blank: false }) %><br>
+
+<% end %>

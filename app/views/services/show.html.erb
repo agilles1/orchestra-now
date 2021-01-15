@@ -1,5 +1,6 @@
 <h2> <%=service_show_format(@service)%></h2> 
-<h3> Repertoire | <%= link_to "Add", new_service_work_path(@service) %> </h3>
+<h3> Repertoire | <%= link_to "Add", new_service_works_path(@service) %> </h3>
 <%@service.program.each do |work|%>
     <p><%= work.title%> - <%= work.composer.last_name %></p>
 <% end %>
+

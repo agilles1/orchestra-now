@@ -1,16 +1,38 @@
-<h2> New Service </h2>
-<% @service.errors.full_messages.each do |error| %>
-    <p><i><%=error%><i></p>
-<% end %>
+<div class='wrapper'>
+    <h2> New Service </h2>
+    <% @service.errors.full_messages.each do |error| %>
+        <p><i><%=error%><i></p>
+    <% end %>
 
-<%= form_for @service do |f| %>
-    <p><%= f.label :Start %>
-    <%= f.datetime_select :start_time %></p>
-    <p> <%= f.label :End %>
-    <%= f.datetime_select :end_time %> </p>
-    <p><%= f.label :Concert %>
-    <%= f.check_box :concert %></p>
-    <%# <h3>Repertoire | <%=link_to "Add", services_path%> </h3>
-    <%# <%= @program %> 
-    <%= f.submit %>
-<% end %>
+    <%= form_for @service do |f| %>
+        <p><%= f.label :Start %>
+        <%= f.datetime_select :start_time %></p>
+        <p> <%= f.label :End %>
+        <%= f.datetime_select :end_time %> </p>
+        <p><%= f.label :Concert %>
+        <%= f.check_box :concert %></p>
+        <h3>Repertoire</h3> 
+        <table>
+            <tr>
+                <th>Order</th>
+                <th>Work</th>
+            </tr>
+            <%= f.fields_for :works, @service.service_works.build do |w| %>
+                <tr>
+                    <td><%= w.number_field :order, { name: "service_works[order][]" } %> </td>
+                    <td><%= w.collection_select(:work_id, Work.all_alpha, :id, :title_with_composer, {:prompt => "Please Select a Work", include_blank: false}) %></td>
+                </tr>
+                <tr>
+                    <td><%= w.number_field :order, { name: "service_works[order][]" } %> </td>
+                    <td><%= w.collection_select(:work_id, Work.all_alpha, :id, :title_with_composer, {:prompt => "Please Select a Work", include_blank: false}) %></td>
+                </tr>
+                <tr>
+                    <td><%= w.number_field :order, { name: "service_works[order][]" } %> </td>
+                    <td><%= w.collection_select(:work_id, Work.all_alpha, :id, :title_with_composer, {:prompt => "Please Select a Work", include_blank: false }) %></td>
+                </tr>
+            <% end %>
+        </table>
+        <br>
+        <%= f.submit %>
+    <% end %>
+</div>
