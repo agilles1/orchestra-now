@@ -48,6 +48,16 @@ Composer
  * Set-up models DONE
  * Services Page (new '/services/new', calendar view '/' and services index 'services#index')
 
+ # Routes
+
+  * Services
+    * Index - /services
+    * New - /services/new
+    * Show - /service/:id
+  * ServiceWorks (Program)
+    * Show
+        
+
 
 # REACH GOALS
 * Styling
