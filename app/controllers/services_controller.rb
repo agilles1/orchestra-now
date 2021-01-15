@@ -13,15 +13,17 @@ class ServicesController < ApplicationController
     end
 
     def create
-        binding.pry
         @service = Service.new(service_params)
-        # 3.times{@service.works.build}
-        binding.pry
-        # if @service.save
-        #     redirect_to service_path(@service)
-        # else
-        #     render :new
-        # end
+        service_works = service_works_params[:service_works_attributes]
+
+        if @service.save
+            service_works[:order].each_with_index  do |order, i|
+                ServiceWork.create(work_id: service_works[:work_id][i], service_id: @service.id, order: order)
+            end
+            redirect_to service_path(@service)
+        else
+            render :new
+        end
     end
 
     def index 
@@ -36,6 +38,11 @@ class ServicesController < ApplicationController
             :start_time, 
             :end_time, 
             :concert, 
+        )
+    end
+
+    def service_works_params
+        params.require(:service).permit(
             service_works_attributes: [
                 order: [],
                 work_id: []
