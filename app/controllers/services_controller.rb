@@ -25,6 +25,10 @@ class ServicesController < ApplicationController
         @services = Service.future.all_chron
     end
 
+    def add_works
+
+    end
+
     private 
 
     def service_params
