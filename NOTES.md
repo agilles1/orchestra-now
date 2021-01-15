@@ -63,4 +63,17 @@ Composer
 * Styling
 * Create new works and composers
 
-
+ <%= f.fields_for :service_work, @service.service_works.build do |w| %>
+                <tr>
+                    <td><%= w.number_field :order, {:name => 'service[service_works_attributes][order][]'}  %> </td>
+                    <td><%= w.collection_select(:work_id, Work.all_alpha, :id, :title_with_composer, {:prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]'}) %></td>
+                </tr>
+                <tr>
+                    <td><%= w.number_field :order, {:name => 'service[service_works_attributes][order][]'}  %> </td>
+                    <td><%= w.collection_select(:work_id, Work.all_alpha, :id, :title_with_composer, {:prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]'}) %></td>
+                </tr>
+                <tr>
+                    <td><%= w.number_field :order, {:name => 'service[service_works_attributes][order][]'}  %> </td>
+                    <td><%= w.collection_select(:work_id, Work.all_alpha, :id, :title_with_composer, {:prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]'}) %></td>
+                </tr>
+            <% end %>

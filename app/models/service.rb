@@ -8,7 +8,9 @@ class Service < ApplicationRecord
     scope :rehearsals, -> {where(concert: false)}
     scope :all_chron, -> {order(:start_time)}
     scope :future, -> {where("start_time > '#{DateTime.current}'")}
-    accepts_nested_attributes_for :works
+    accepts_nested_attributes_for :service_works
+
+    
    
     def program
         self.works.order(:order)
@@ -18,8 +20,5 @@ class Service < ApplicationRecord
         self.start_time.strftime('%A, %B %d, %Y')
     end
 
-    def index_hash
-        
-    end
 
 end

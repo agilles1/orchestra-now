@@ -9,17 +9,19 @@ class ServicesController < ApplicationController
 
     def new
         @service = Service.new
-        @program = ServiceWork.find_by(service_id: @service.id)
+        
     end
 
-    def create 
+    def create
         binding.pry
         @service = Service.new(service_params)
-        if @service.save
-            redirect_to service_path(@service)
-        else
-            render :new
-        end
+        # 3.times{@service.works.build}
+        binding.pry
+        # if @service.save
+        #     redirect_to service_path(@service)
+        # else
+        #     render :new
+        # end
     end
 
     def index 
@@ -29,6 +31,15 @@ class ServicesController < ApplicationController
     private 
 
     def service_params
-        params.require(:service).permit(:date, :start_time, :end_time, :concert, :works)
+        params.require(:service).permit(
+            :date, 
+            :start_time, 
+            :end_time, 
+            :concert, 
+            service_works_attributes: [
+                order: [],
+                work_id: []
+            ]
+        )
     end
 end
