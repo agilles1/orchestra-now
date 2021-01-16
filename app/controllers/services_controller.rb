@@ -15,15 +15,15 @@ class ServicesController < ApplicationController
     def create
         @service = Service.new(service_params)
         service_works = service_works_params[:service_works_attributes]
-
-        if @service.save
-            service_works[:order].each_with_index  do |order, i|
-                ServiceWork.create(work_id: service_works[:work_id][i], service_id: @service.id, order: order)
-            end
-            redirect_to service_path(@service)
-        else
-            render :new
-        end
+        binding.pry
+        # if @service.save
+        #     service_works[:order].each_with_index  do |order, i|
+        #         ServiceWork.create(work_id: service_works[:work_id][i], service_id: @service.id, order: order)
+        #     end
+        #     redirect_to service_path(@service)
+        # else
+        #     render :new
+        # end
     end
 
     def index 

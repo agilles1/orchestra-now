@@ -11,7 +11,9 @@
         <%= f.datetime_select :end_time %> </p>
         <p><%= f.label :Concert %>
         <%= f.check_box :concert %></p>
+        
         <h3>Repertoire</h3> 
+
         <table>
             <tr>
                 <th>Order</th>
@@ -20,25 +22,26 @@
             <%= f.fields_for :service_work, @service.service_works.build do |w| %>
                 <tr>
                     <td><%= w.number_field :order, {:name => 'service[service_works_attributes][order][]'}  %> </td>
-                    <td><%= w.collection_select(:work_id, Work.all_alpha, :id, :title_with_composer, {:prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]'}) %></td>
+                    <td><%= w.grouped_collection_select(:work_id, Composer.all, :works_in_alpha, :full_name, :id, :title, {:prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]'}) %></td>
                 </tr>
             <%end%>
 
-                <%= f.fields_for :service_work, @service.service_works.build do |w| %>
+            <%= f.fields_for :service_work, @service.service_works.build do |w| %>
                 <tr>
                     <td><%= w.number_field :order, {:name => 'service[service_works_attributes][order][]'}  %> </td>
-                    <td><%= w.collection_select(:work_id, Work.all_alpha, :id, :title_with_composer, {:prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]'}) %></td>
+                    <td><%= w.grouped_collection_select(:work_id, Composer.all, :works_in_alpha, :full_name, :id, :title, {:prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]'}) %></td>
                 </tr>
-                <% end %>
+            <%end%>
 
-                <%= f.fields_for :service_work, @service.service_works.build do |w| %>
-                 <tr>
+            <%= f.fields_for :service_work, @service.service_works.build do |w| %>
+                <tr>
                     <td><%= w.number_field :order, {:name => 'service[service_works_attributes][order][]'}  %> </td>
-                    <td><%= w.collection_select(:work_id, Work.all_alpha, :id, :title_with_composer, {:prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]'}) %></td>
+                    <td><%= w.grouped_collection_select(:work_id, Composer.all, :works_in_alpha, :full_name, :id, :title, {:prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]'}) %></td>
                 </tr>
-            <% end %>
-        </table>
-        <br>
+            <%end%>
+        </table><br>
         <%= f.submit %>
     <% end %>
 </div>
+
+grouped_collection_select(object, method, collection, group_method, group_label_method
