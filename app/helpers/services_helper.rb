@@ -17,7 +17,7 @@ module ServicesHelper
     end
 
     def service_show_format(service)
-        "#{service_date_format(service)} - #{service_duration_format(service)} - #{rehearsal_or_concert(service)}"
+        "#{service_date_format(service)} - #{service_duration_format(service)}"
     end
 
     

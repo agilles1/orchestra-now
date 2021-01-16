@@ -1,6 +1,11 @@
-<h2> <%=service_show_format(@service)%></h2> 
-<h3> Repertoire | <%= link_to "Add", new_service_works_path(@service) %> </h3>
-<%@service.program.each do |work|%>
-    <p><%= work.title%> - <%= work.composer.last_name %></p>
-<% end %>
+<div class = 'wrapper'>
+    <h2> <%=rehearsal_or_concert(@service)%> </h2> 
+    <h3> <%=service_show_format(@service)%> <%=link_to "Edit", edit_service_path(@service)%> </h3> 
+    <hr>
+    <h3> Repertoire </h3>
+    
+    <%@service.program.each do |work|%>
+        <p><%= work.title%> - <%= work.composer.last_name %> <%=link_to "Remove", delete_service_work_path(@service.id, work.id)%> </p>
+    <% end %>
+</div>
 

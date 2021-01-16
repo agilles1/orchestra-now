@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :services 
 
-  get '/services/:service_id/works/new', to: 'works#service_works_new', as: 'new_service_works'
-  get '/services/:service_id/works/edit', to: 'works#service_works_edit', as: 'edit_service_works'
-  post '/services/:service_id/works', to: 'works#service_works_create', as: 'service_works'
-  patch '/services/:service_id/works', to: 'works#service_works_update'
-  delete  '/services/:service_id/works', to: 'works#service_works_update'
+  # get '/services/:service_id/works/new', to: 'works#service_works_new', as: 'new_service_works'
+  # get '/services/:service_id/works/edit', to: 'works#service_works_edit', as: 'edit_service_works'
+  # post '/services/:service_id/works', to: 'works#service_works_create', as: 'service_works'
+  # patch '/services/:service_id/works', to: 'works#service_works_update'
+  get  '/services/:service_id/work/:id', to: 'service_works#destroy', as: 'delete_service_work'
   
   resources :works
 
