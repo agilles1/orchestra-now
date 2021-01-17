@@ -3,17 +3,18 @@
         <p><i><%=error%><i></p>
     <% end %>
 <% end %>
-
+<hr>
     <%= form_for @service do |f| %>
         <p><%= f.label :Start %>
-        <%= f.datetime_select :start_time %></p>
+        <%= f.datetime_select :start_time, :minute_step => 15 %></p>
         <p> <%= f.label :End %>
-        <%= f.datetime_select :end_time %> </p>
+        <%= f.datetime_select :end_time, :minute_step => 15  %> </p>
         <p><%= f.label :Concert %>
         <%= f.check_box :concert %></p>
-        
+        <hr>
         <h3>Repertoire</h3> 
-
+        <hr>
+        
         <table>
             <tr>
                 <th>Order</th>

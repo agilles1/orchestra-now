@@ -14,6 +14,7 @@ class ServicesController < ApplicationController
     end
 
     def create
+     
         @service = Service.new(service_params)
         service_works = service_works_params[:service_works_attributes]
 
@@ -59,6 +60,13 @@ class ServicesController < ApplicationController
         @services = Service.future.all_chron
     end
 
+    def destroy
+        @service = Service.find(params[:id])
+        @service.service_works.destroy_all
+        @service.destroy
+        redirect_to '/home'
+    end
+
     private 
 
     def service_params
@@ -66,9 +74,11 @@ class ServicesController < ApplicationController
             :date, 
             :start_time, 
             :end_time, 
-            :concert, 
+            :concert
         )
     end
+
+   
 
     def service_works_params
         params.require(:service).permit(

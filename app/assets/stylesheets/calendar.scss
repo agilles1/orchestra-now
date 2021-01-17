@@ -1,0 +1,43 @@
+.simple-calendar {
+    
+    .calendar-title{
+        font-size: 55px;
+    }
+    .calendar-heading{
+        text-align: left
+    }
+
+    .calendar-heading a{
+        float: right;
+        display: inline-grid;
+    }
+
+    .day {}
+  
+    .wday-0 {
+        a{
+        background: none;
+        color: black
+        }
+    }
+    .wday-1 {}
+    .wday-2 {}
+    .wday-3 {}
+    .wday-4 {}
+    .wday-5 {}
+    .wday-6 {}
+  
+    .today {}
+    .past {}
+    .future {}
+  
+    .start-date {}
+  
+    .prev-month {}
+    .next-month { }
+    .current-month {
+
+    }
+  
+    .has-events {}
+  }
