@@ -12,6 +12,7 @@
   </head>
 
   <body>
+  <header>
     <nav>
       <h1>orchestra<i><b>NOW</b></i></h1>
       <ul>
@@ -20,8 +21,8 @@
         <li><%= link_to "Services", services_path %></li>
       </ul>
     </nav>
-
-    <%= yield %>
-
+  </header>
+  
+  <%= yield %>
   </body>
 </html>

@@ -1,4 +1,4 @@
-
+<div class='wrapper'>
 <% @composers.each do |composer|%>
     <button type="button" class="collapsible"><%= composer.full_name %></button>
     <div class="content">
@@ -9,5 +9,5 @@
         </p>
     </div>
 <% end %>
-
+</div>
 <%= javascript_pack_tag 'index' %>
