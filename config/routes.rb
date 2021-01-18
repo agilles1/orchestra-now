@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   get '/home', to: 'home#home'
 
   get '/login', to: 'sessions#new', as: 'login'
-  post '/login', to: 'sessions#create'
+  post '/login', to: 'sessions#create', as: 'login_post'
   get '/signup', to: 'users#new', as: 'new_user'
+  delete '/logout', to: 'sessions#destroy', as: 'log_out'
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
