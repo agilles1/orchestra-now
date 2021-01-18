@@ -1,3 +1,21 @@
 // Place all the styles related to the Services controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.service {
+  a{
+          background-color: rgb(240, 238, 238);
+          display: block;
+          color: black;
+          padding: 14px 75px;
+          text-decoration: none;
+        }
+    
+  a:hover {
+          background-color: rgb(231, 231, 231);
+          display: block;
+          color: black;
+          padding: 14px 75px;
+          text-decoration: none;
+        }
+  }

@@ -13,7 +13,7 @@ class WorksController < ApplicationController
     end
 
     def show 
-
+        @work = Work.find(params[:id])
     end
 
     def service_works_new

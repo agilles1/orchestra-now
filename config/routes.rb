@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # patch '/services/:service_id/works', to: 'works#service_works_update'
   get  '/services/:service_id/work/:id', to: 'service_works#destroy', as: 'delete_service_work'
   
-  resources :works
+  resources :works, only: [:index, :show]
 
   get '/home', to: 'home#home'
 

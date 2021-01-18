@@ -8,7 +8,7 @@ class Service < ApplicationRecord
     validate :start_time_is_before_end_time
     scope :rehearsals, -> {where(concert: false)}
     scope :all_chron, -> {order(:start_time)}
-    scope :future, -> {where("start_time > '#{DateTime.current}'")}
+    scope :future, -> {where("start_time >= ?", DateTime.current-1)}
 
 
     

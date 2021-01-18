@@ -15,21 +15,42 @@
  *= require_self
 *= require simple_calendar
  */
- body{
-   font-family: 'Open Sans', sans-serif;
- }
-header {
+
+ a {
+  background-color: #000000;
+  border: none;
+  color: white;
+  padding: 1%;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  display: inline-grid;
+  white-space: nowrap;
+  font-size: 15px
+  }
+
+  body{
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  header {
     display: block;
     top: 0px;
     width: 100%;
     text-align: center;
+    background-color: white;
     position: fixed;
+    z-index: 1;
     padding: 100px
+    
+    
 
     nav {
       
       display: flex;
-      top:0;}
+      top:0;
+     
+      }
       
      nav h1 {
         font-size: 50;
@@ -65,23 +86,21 @@ header {
       }
   }
 
-
- a {
-  background-color: #000000;
-  border: none;
-  color: white;
-  padding: 1%;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-  display: inline-grid;
-  white-space: nowrap;
-  font-size: 15px
+  input[type=button], input[type=submit], input[type=reset] {
+    margin-bottom: 3em;
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 1%;
+    text-decoration: none;
+    margin: auto;
+    cursor: pointer;
+    font-size: 15px;
   }
-  
-  
 
- .wrapper {
+    
+
+  .wrapper {
     position: relative ;
     top: 100px;
     background-color: rgb(240, 238, 238);
@@ -92,19 +111,11 @@ header {
     padding-top: 20px;
     padding-bottom: 20px;
     border-style: none solid solid none;
-    border-radius: 25px
-    }
-    input[type=button], input[type=submit], input[type=reset] {
-      margin-bottom: 3em;
-      background-color: #000000;
-      border: none;
-      color: white;
-      padding: 1%;
-      text-decoration: none;
-      margin: auto;
-      cursor: pointer;
-      font-size: 15px;
-    }
+    border-radius: 25px;
+    z-index: 0;
+  }
+
+    
   
   
     

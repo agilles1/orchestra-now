@@ -1,3 +1,6 @@
+<%= link_to "Create New Service", new_service_path %>
+<hr>
 <% @services.each do |service| %>
-    <p><%= service_show_format(service) %></p>
+    <p class = "service"> <%=link_to service_index_format(service), service_path(service) %></p>
+    <hr>
 <% end %>

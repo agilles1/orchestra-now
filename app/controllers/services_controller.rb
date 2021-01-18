@@ -57,7 +57,7 @@ class ServicesController < ApplicationController
     end
 
     def index 
-        @services = Service.future.all_chron
+        @services = Service.all_chron.future
     end
 
     def destroy
