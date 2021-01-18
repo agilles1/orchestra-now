@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   
   resources :works, only: [:index, :show]
 
+  resources :users, except: :new
+
   get '/home', to: 'home#home'
 
   get '/login', to: 'sessions#new'
-  get '/signup', to: 'user#new'
+  get '/signup', to: 'users#new'
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
