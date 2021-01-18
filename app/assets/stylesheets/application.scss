@@ -38,6 +38,11 @@
     font-family: 'Open Sans', sans-serif;
   }
 
+  .field_with_errors {
+    color: red;
+    font-weight: bold;
+  }
+
   header {
     display: block;
     top: 0px;
