@@ -1,6 +1,14 @@
 <% @composers.each do |composer|%>
     <button type="button" class="collapsible"><%= composer.full_name %></button>
     <div class="content">
+        <br>
+        <b>Composer:</b> <%= composer.full_name %><br>
+        <b>Birth:</b> <%=composer_year_format(composer.birth_year)%><br>
+        <b>Death:</b> <%=composer_year_format(composer.death_year)%><br>
+        <b>Epoch:</b> <%= composer.epoch %>
+        <hr>
+        <h3> Repertoire</h3>
+        <hr>
       
             <% composer.works.each do |work| %>
                 <%=link_to work.title, work_path(work)%> <br>
