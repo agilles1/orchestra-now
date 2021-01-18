@@ -12,49 +12,57 @@
         display: inline-grid;
     }
 
-    .day {}
+    .day {
+        }
   
     .wday-0 {
+        
         a{
         background: none;
-        color: black
+        color: black;
         }
     }
     .wday-1 {
+        width: auto;
         a{
             background: none;
-            color: black
+            color: black;
+            
             }
     }
     .wday-2 {
         a{
             background: none;
-            color: black
+            color: black;
+            
             }
     }
     .wday-3 {
         a{
             background: none;
-            color: black
+            color: black;
+        
             }
     }
     .wday-4 {
         a{
             background: none;
-            color: black
+            color: black;
+            
             }
     }
     .wday-5 {
         a{
             background: none;
-            color: black
+            color: black;
+           
             }
     }
     .wday-6 {
         a{
             background: none;
-            color: black
-            }
+            color: black;
+                        }
     }
   
     .today {}

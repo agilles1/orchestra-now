@@ -17,16 +17,17 @@
  */
 
  a {
-  background-color: #000000;
+
   border: none;
-  color: white;
+  color: black;
   padding: 1%;
   text-decoration: none;
   margin: 4px 2px;
   cursor: pointer;
   display: inline-grid;
   white-space: nowrap;
-  font-size: 15px
+  font-size: 15px;
+  font-weight: bold;
   }
 
   body{
@@ -51,6 +52,19 @@
       top:0;
      
       }
+      nav a {
+
+        border: none;
+        color: black;
+        padding: 1%;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        display: inline-grid;
+        white-space: nowrap;
+        font-size: 15px;
+        font-weight: 300;
+        }
       
      nav h1 {
         font-size: 50;

@@ -2,7 +2,7 @@
   <%= day_format(date) %>
     <% services.each do |service| %>
       <div>
-       <%=link_to "#{service_duration_format(service)} - #{rehearsal_or_concert(service)} ", service_path(service)%>
+       <%=link_to "#{rehearsal_or_concert_abbreviated(service)} #{service_duration_format(service)}", service_path(service)%>
       </div>
     <% end %>
 <% end %>
