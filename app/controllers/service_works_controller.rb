@@ -1,4 +1,5 @@
 class ServiceWorksController < ApplicationController
+    
 
     def destroy
         @service_work = ServiceWork.find_by(service_id: params[:service_id], work_id: params[:id])

@@ -12,18 +12,26 @@
   </head>
 
   <body>
-  <header>
-    <nav>
-      <h1>orchestra<i><b>NOW</b></i></h1>
-      <ul>
-        <li><%= link_to "Home", '/home' %></li>
-        <li><%= link_to "Works", works_path %></li>
-        <li><%= link_to "Services", services_path %></li>
-      </ul>
-    </nav>
-  </header>
-    <div class= 'wrapper'>
-      <%= yield %>
+  <% if !current_user %>
+    <div class="wrapper-login">
+    <h1>orchestra<i><b>NOW</b></i></h1>
+    <hr>
+        <%= yield %>
     </div>
+  <% else %>
+      <header>
+        <nav>
+          <h1>orchestra<i><b>NOW</b></i></h1>
+          <ul>
+            <li><%= link_to "Home", '/home' %></li>
+            <li><%= link_to "Works", works_path %></li>
+            <li><%= link_to "Services", services_path %></li>
+          </ul>
+        </nav>
+      </header>
+        <div class= 'wrapper'>
+          <%= yield %>
+        </div>
+  <% end %>
   </body>
 </html>
