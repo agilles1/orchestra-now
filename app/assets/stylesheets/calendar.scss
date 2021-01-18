@@ -13,57 +13,23 @@
     }
 
     .day {
-        }
-  
-    .wday-0 {
-        
         a{
         background: none;
         color: black;
+        font-weight: 300;}
+        
+        a:hover {
+            background-color: rgb(219, 219, 219);
         }
     }
-    .wday-1 {
-        width: auto;
-        a{
-            background: none;
-            color: black;
-            
-            }
-    }
-    .wday-2 {
-        a{
-            background: none;
-            color: black;
-            
-            }
-    }
-    .wday-3 {
-        a{
-            background: none;
-            color: black;
-        
-            }
-    }
-    .wday-4 {
-        a{
-            background: none;
-            color: black;
-            
-            }
-    }
-    .wday-5 {
-        a{
-            background: none;
-            color: black;
-           
-            }
-    }
-    .wday-6 {
-        a{
-            background: none;
-            color: black;
-                        }
-    }
+  
+    .wday-0 {    }
+    .wday-1 {    }
+    .wday-2 {}
+    .wday-3 {}
+    .wday-4 {}
+    .wday-5 {}
+    .wday-6 {}
   
     .today {}
     .past {}
