@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   get '/home', to: 'home#home'
 
+  get '/login', to: 'sessions#new'
+  get '/signup', to: 'user#new'
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
                   #            services GET    /services(.:format)                                                                      services#index
