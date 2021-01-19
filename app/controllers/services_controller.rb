@@ -50,6 +50,7 @@ class ServicesController < ApplicationController
                 else 
                     ServiceWork.create(work_id: service_works[:work_id][i], service_id: @service.id, order: order)
                 end
+
             end
             redirect_to service_path(@service)
         else

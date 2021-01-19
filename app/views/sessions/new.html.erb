@@ -8,6 +8,7 @@
     <%= submit_tag "Login", :class => "login" %>
 <% end -%>
     <hr>
-
+<%= link_to "Log In with Google", '/auth/google_oauth2', method: :post %>
+<hr>
     <%= link_to "Sign-up", new_user_path %>
 
