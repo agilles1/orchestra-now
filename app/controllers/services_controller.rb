@@ -15,7 +15,6 @@ class ServicesController < ApplicationController
     end
 
     def create
-     
         @service = Service.new(service_params)
         service_works = service_works_params[:service_works_attributes]
 
@@ -29,17 +28,37 @@ class ServicesController < ApplicationController
         end
     end
 
+    def duplicate
+        @service = Service.find(params[:id])
+        @dup_service = @service.dup
+        
+        if @dup_service.save 
+            if @service.service_works
+                @service.service_works.each do |service_work|
+                    dup_service_work = service_work.dup
+                    dup_service_work.service_id = @dup_service.id 
+                    dup_service_work.save
+                end
+            end
+            redirect_to edit_service_path(@dup_service)
+        else 
+            flash[:error] = "Service not copied! Please try again."
+            redirect_to service_path(@service)
+        end
+    end
+
     def edit 
            
     end
 
     def update
 
-        @service = Service.find_by(service_params[:id])
+        @service = Service.find(params[:id]) #current service 
         service_works = service_works_params[:service_works_attributes]
 
-        if @service.update(service_params)
-           
+        if !@service.update(service_params) #if a service does not update render :edit form
+            render :edit
+        else
             service_works[:order].reject(&:empty?).each_with_index  do |order, i|
         
                 if !service_works[:id][i].empty?
@@ -53,8 +72,6 @@ class ServicesController < ApplicationController
 
             end
             redirect_to service_path(@service)
-        else
-            render :edit
         end
     end
 

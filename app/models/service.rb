@@ -24,9 +24,11 @@ class Service < ApplicationRecord
 
     def start_time_is_before_end_time
         if start_time > end_time 
-            errors.add(:start_date, "can't be in after the end time")
+            errors.add(:start_date, "can't be in after the end time.")
         end
     end
+
+   
 
 
 end

@@ -3,6 +3,8 @@ Composer.destroy_all
 Composer.reset_pk_sequence
 Work.destroy_all
 Work.reset_pk_sequence
+Service.destroy_all
+Service.reset_pk_sequence
 
 JSON.parse(File.read("composers.json")).each do |composer|
     c = Composer.new
@@ -23,5 +25,7 @@ JSON.parse(File.read("works.json")).each do |works|
         w.save
     end
 end
+
+
 
 

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/home', to: 'home#home'
  
   resources :services
+  post '/services/:id/copy', to: 'services#duplicate', as: 'duplicate_service'
   get  '/services/:service_id/work/:id', to: 'service_works#destroy', as: 'delete_service_work'
 
   resources :works, only: [:index, :show]
