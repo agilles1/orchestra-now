@@ -2,7 +2,7 @@ class WorksController < ApplicationController
     
     
     def index
-        @composers = Composer.all
+        @composers = Composer.all.by_last_name
     end
 
     def new

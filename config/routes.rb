@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   post '/services/:id/copy', to: 'services#duplicate', as: 'duplicate_service'
   get  '/services/:service_id/work/:id', to: 'service_works#destroy', as: 'delete_service_work'
 
-  resources :works, only: [:index, :show]
+  resources :works, only: [:index]
+
+  resources :composers, only: [:new, :create, :edit, :update, :destroy]  do 
+    resources :works, only: [:new, :show]
+  end
+
   
   resources :users, except: :new
 

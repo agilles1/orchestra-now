@@ -1,0 +1,19 @@
+<h2>Create New Composer</h2>
+<hr>
+<%= form_for @composer do |f| %>
+    <h3>Name</h3>
+    <%= f.label :full_name %><br>
+    <%= f.text_field :full_name %><br>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+    <hr>
+    <%= f.label :birth_year %>
+    <%= f.select :birth_year, 0..(Time.zone.now.year), {:prompt => "Please Select", :include_blank => false}  %><br>
+    <%= f.label :death_year %>
+    <%= f.select :birth_year, 0..(Time.zone.now.year), {:prompt => "Please Select", :include_blank => false}  %><br>
+    <hr>
+    <%= f.label :epoch %>
+    <%= f.text_field :epoch%>
+    <br>
+    <%= f.submit %>
+<% end %>

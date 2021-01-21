@@ -1,3 +1,7 @@
+<h2> Works Library <%= link_to "Add Composer", new_composer_path %>  </h2> 
+
+
+<hr>
 <% @composers.each do |composer|%>
     <button type="button" class="collapsible"><%= composer.full_name %></button>
     <div class="content">
@@ -7,11 +11,11 @@
         <b>Death:</b> <%=composer_year_format(composer.death_year)%><br>
         <b>Epoch:</b> <%= composer.epoch %>
         <hr>
-        <h3> Repertoire</h3>
+        <h3> Repertoire <%= link_to "Add New Work", new_composer_work_path(composer) %></h3>
         <hr>
       
             <% composer.works.each do |work| %>
-                <%=link_to work.title, work_path(work)%> <br>
+                <%=link_to work.title, composer_work_path(composer, work)%> <br>
             <% end %>
      
     </div>
