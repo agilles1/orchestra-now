@@ -1,0 +1,10 @@
+<h2>Create New Work</h2>
+<hr>
+Composer <b><%=@composer.full_name%></b>
+<%= form_for [@composer, @work] do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :instrumentation %>
+    <%= f.text_field :instrumentation %>
+    <%= f.submit %>
+<% end %>
