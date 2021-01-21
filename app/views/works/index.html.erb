@@ -6,10 +6,11 @@
     <button type="button" class="collapsible"><%= composer.full_name %></button>
     <div class="content">
         <br>
-        <b>Composer:</b> <%= composer.full_name %><br>
+        <b>Composer:</b> <%= composer.full_name %>  <%=link_to "Edit", edit_composer_path(composer)%><hr>
         <b>Birth:</b> <%=composer_year_format(composer.birth_year)%><br>
         <b>Death:</b> <%=composer_year_format(composer.death_year)%><br>
         <b>Epoch:</b> <%= composer.epoch %>
+       
         <hr>
         <h3> Repertoire <%= link_to "Add New Work", new_composer_work_path(composer) %></h3>
         <hr>

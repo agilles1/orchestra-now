@@ -14,14 +14,10 @@ class ComposersController < ApplicationController
     end
 
     def edit 
-
+        @composer = Composer.find(params[:id])
     end
 
     def update 
-
-    end
-
-    def destroy 
 
     end
 

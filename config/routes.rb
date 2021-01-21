@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :works, only: [:index]
 
-  resources :composers, only: [:new, :create, :edit, :update, :destroy]  do 
+  resources :composers, only: [:new, :create, :edit, :update]  do 
     resources :works, only: [:new, :show]
   end
 
