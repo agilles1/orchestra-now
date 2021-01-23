@@ -1,24 +1,20 @@
-# README
+# orchestraNow
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+orchestraNOW is a orchestra service management platform. 
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Fork and clone this repository
+```bash
+bundle install
+```
+```bash
+rails s
+```
 
-* System dependencies
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
