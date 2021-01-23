@@ -7,9 +7,8 @@
     <div class="content">
         <br>
         <b>Composer:</b> <%= composer.full_name %>  <%=link_to "Edit", edit_composer_path(composer)%><hr>
-        <b>Birth:</b> <%=composer_year_format(composer.birth_year)%><br>
-        <b>Death:</b> <%=composer_year_format(composer.death_year)%><br>
-        <b>Epoch:</b> <%= composer.epoch %>
+
+        <%= render partial: 'works/composer_details', locals: {composer: composer} %>
        
         <hr>
         <h3> Repertoire <%= link_to "Add New Work", new_composer_work_path(composer) %></h3>

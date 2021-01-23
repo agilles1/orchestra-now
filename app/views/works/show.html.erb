@@ -1,9 +1,7 @@
 <h2> <%= @work.title %> <%=link_to "Edit", edit_composer_work_path(@work.composer, @work)%></h2>
 
 <b>Composer:</b> <%= @work.composer.full_name %><br>
-<b>Birth:</b> <%=composer_year_format(@work.composer.birth_year)%><br>
-<b>Death:</b> <%=composer_year_format(@work.composer.death_year)%><br>
-<b>Epoch:</b> <%= @work.composer.epoch %><br>
+<%= render partial: 'works/composer_details', locals: {composer: @work.composer} %>
 <hr>
 <h3>Instrumentation</h3>
 <%= @work.instrumentation %>
