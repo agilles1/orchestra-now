@@ -1,8 +1,4 @@
-<%if service.errors.any? %>
-    <% service.errors.full_messages.each do |error| %>
-        <p><i><%=error%><i></p>
-    <% end %>
-<% end %>
+<%= render partial: 'errors/errors', locals: {object: service} %>
 <hr>
     <%= form_for service do |f| %>
         <p><%= f.label :Start %>
@@ -22,25 +18,25 @@
             </tr>
             <%= f.fields_for :service_work, service.service_works.build do |w| %>
                 <tr>
-                    <td><%= w.number_field :order, {:name => 'service[service_works_attributes][order][]', :value => @service.service_works[0].order}  %> </td>
-                    <td><%= w.grouped_collection_select(:work_id, Composer.all, :works_in_alpha, :full_name, :id, :title, {:selected => @service.service_works[0].work_id, :prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]' }) %></td>
-                    <td><%= f.hidden_field :id, {:name => 'service[service_works_attributes][id][]', :value => @service.service_works[0].id} %> </td>
+                    <td><%= w.number_field :order, {:name => 'service[service_works_attributes][order][]', :value => service.service_works[0].order}  %> </td>
+                    <td><%= w.grouped_collection_select(:work_id, Composer.all, :works_in_alpha, :full_name, :id, :title, {:selected => service.service_works[0].work_id, :prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]' }) %></td>
+                    <td><%= f.hidden_field :id, {:name => 'service[service_works_attributes][id][]', :value => service.service_works[0].id} %> </td>
                 </tr>
             <%end%>
 
             <%= f.fields_for :service_work, service.service_works.build do |w| %>
                 <tr>
-                    <td><%= w.number_field :order, {:name => 'service[service_works_attributes][order][]', :value => @service.service_works[1].order}  %> </td>
-                    <td><%= w.grouped_collection_select(:work_id, Composer.all, :works_in_alpha, :full_name, :id, :title, {:selected => @service.service_works[1].work_id, :prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]' }) %></td>
-                    <td><%= f.hidden_field :id, {:name => 'service[service_works_attributes][id][]', :value => @service.service_works[1].id} %> </td> 
+                    <td><%= w.number_field :order, {:name => 'service[service_works_attributes][order][]', :value => service.service_works[1].order}  %> </td>
+                    <td><%= w.grouped_collection_select(:work_id, Composer.all, :works_in_alpha, :full_name, :id, :title, {:selected => service.service_works[1].work_id, :prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]' }) %></td>
+                    <td><%= f.hidden_field :id, {:name => 'service[service_works_attributes][id][]', :value => service.service_works[1].id} %> </td> 
                 </tr>
             <%end%>
 
             <%= f.fields_for :service_work, service.service_works.build do |w| %>
                 <tr>
-                    <td><%= w.number_field :order, {:name => 'service[service_works_attributes][order][]', :value => @service.service_works[2].order}  %> </td>
-                    <td><%= w.grouped_collection_select(:work_id, Composer.all, :works_in_alpha, :full_name, :id, :title, {:selected => @service.service_works[2].work_id, :prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]' }) %></td>
-                    <td><%= f.hidden_field :id, {:name => 'service[service_works_attributes][id][]', :value => @service.service_works[2].id} %> </td>
+                    <td><%= w.number_field :order, {:name => 'service[service_works_attributes][order][]', :value => service.service_works[2].order}  %> </td>
+                    <td><%= w.grouped_collection_select(:work_id, Composer.all, :works_in_alpha, :full_name, :id, :title, {:selected => service.service_works[2].work_id, :prompt => "Please Select a Work", :include_blank => false}, {:name => 'service[service_works_attributes][work_id][]' }) %></td>
+                    <td><%= f.hidden_field :id, {:name => 'service[service_works_attributes][id][]', :value => service.service_works[2].id} %> </td>
                 </tr>
             <%end%>
         </table><br>

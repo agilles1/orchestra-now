@@ -1,10 +1,6 @@
 <h2>Create New Users</h2>
 
-<%if @user.errors.any? %>
-    <% @user.errors.full_messages.each do |error| %>
-        <p><i><%=error%>!<i></p>
-    <% end %>
-<% end %>
+<%= render partial: 'errors/errors', locals: {object: @user} %>
 
 <%= form_for @user do |f| %>
     <%= f.label :email %><br>

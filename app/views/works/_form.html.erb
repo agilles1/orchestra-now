@@ -1,8 +1,4 @@
-<%if work.errors.any? %>
-    <% work.errors.full_messages.each do |error| %>
-        <p><i><%=error%><i></p>
-    <% end %>
-<% end %>
+<%= render partial: 'errors/errors', locals: {object: work} %>
 
 <%= form_for [composer, work] do |f| %>
     <%= f.label :title %>
