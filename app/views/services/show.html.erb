@@ -9,6 +9,6 @@
         <p><%= work.title%> - <%= work.composer.last_name %> <%=link_to "Remove", delete_service_work_path(@service.id, work.id), data: { confirm: "Are you sure you want to remove #{work.title}?" }, class: "service" %> </p>
     <% end %>
     <hr>
-    <%=link_to "Edit", edit_service_path(@service)%> 
+    <%=link_to "Edit", edit_service_path(@service)%> <%= link_to"New + Copy", duplicate_service_path(@service), method: :post,data: { confirm: "Are you sure you want to copy this service?" } %> 
 
 

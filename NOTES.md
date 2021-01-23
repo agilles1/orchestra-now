@@ -12,7 +12,9 @@ Users can:
 Future Features:
 * Roles (Admin and Perfomer) 
     * Admin full function, Performer view only
+    * Utilize User Services to track creation and edit of services. 
 * Instrumentation stored as integer for each instrument instead of string "2.2.2.2-4.2.2.1"
+
 
 # Models
 User
