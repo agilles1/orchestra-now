@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-    before_action :set_service, only: [:show, :new, :edit]
+    before_action :set_service, only: [:show, :new, :edit, :update]
     
 
     def show
@@ -11,7 +11,7 @@ class ServicesController < ApplicationController
     end
 
     def new
-        
+
     end
 
     def create
@@ -19,9 +19,7 @@ class ServicesController < ApplicationController
         service_works = service_works_params[:service_works_attributes]
 
         if @service.save
-            service_works[:order].reject(&:empty?).each_with_index  do |order, i|
-                ServiceWork.create(work_id: service_works[:work_id][i], service_id: @service.id, order: order)
-            end
+            create_or_update_service_works(service_works)
             redirect_to service_path(@service)
         else
             render :new
@@ -33,13 +31,7 @@ class ServicesController < ApplicationController
         @dup_service = @service.dup
         
         if @dup_service.save 
-            if @service.service_works
-                @service.service_works.each do |service_work|
-                    dup_service_work = service_work.dup
-                    dup_service_work.service_id = @dup_service.id 
-                    dup_service_work.save
-                end
-            end
+            duplicate_service_works(@service, @dup_service.id)
             redirect_to edit_service_path(@dup_service)
         else 
             flash[:error] = "Service not copied! Please try again."
@@ -52,25 +44,12 @@ class ServicesController < ApplicationController
     end
 
     def update
-
-        @service = Service.find(params[:id]) #current service 
         service_works = service_works_params[:service_works_attributes]
 
         if !@service.update(service_params) #if a service does not update render :edit form
             render :edit
         else
-            service_works[:order].reject(&:empty?).each_with_index  do |order, i|
-        
-                if !service_works[:id][i].empty?
-                    work = ServiceWork.find(service_works[:id][i])
-                    work.order = order
-                    work.work_id = service_works[:work_id][i]
-                    work.save
-                else 
-                    ServiceWork.create(work_id: service_works[:work_id][i], service_id: @service.id, order: order)
-                end
-
-            end
+            create_or_update_service_works(service_works)
             redirect_to service_path(@service)
         end
     end
@@ -97,8 +76,6 @@ class ServicesController < ApplicationController
         )
     end
 
-   
-
     def service_works_params
         params.require(:service).permit(
             service_works_attributes: [
@@ -110,12 +87,37 @@ class ServicesController < ApplicationController
     end
 
     def set_service
-        if !Service.exists?(params[:id])
+        if params[:id] && !Service.exists?(params[:id])
             redirect_to '/home'
         elsif params[:id]
             @service = Service.find(params[:id])
         else
             @service = Service.new 
+        end
+    end
+
+    def duplicate_service_works(service, dup_service_id)
+        if service.service_works
+            service.service_works.each do |service_work|
+                dup_service_work = service_work.dup
+                dup_service_work.service_id = dup_service_id
+                dup_service_work.save
+            end
+        end
+    end
+
+    def create_or_update_service_works(service_works)
+        service_works[:order].reject(&:empty?).each_with_index  do |order, i|
+        
+            if !service_works[:id][i].empty?
+                work = ServiceWork.find(service_works[:id][i])
+                work.order = order
+                work.work_id = service_works[:work_id][i]
+                work.save
+            else 
+                ServiceWork.create(work_id: service_works[:work_id][i], service_id: @service.id, order: order)
+            end
+
         end
     end
 

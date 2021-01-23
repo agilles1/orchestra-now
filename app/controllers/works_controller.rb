@@ -11,7 +11,6 @@ class WorksController < ApplicationController
     end
 
     def create 
-        binding.pry
         @composer = Composer.find(params[:composer_id])
         @work = Work.new(work_params)
         @work.composer_id = @composer.id
