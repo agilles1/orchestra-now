@@ -26,6 +26,12 @@ class WorksController < ApplicationController
         @work = Work.find(params[:id])
     end
 
+    def destroy
+        @work = Work.find(params[:id])
+        @work.destroy
+        redirect_to works_path
+    end
+
     def service_works_new
         @works = Work.all
         @program = ServiceWork.new

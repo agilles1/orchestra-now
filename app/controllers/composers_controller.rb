@@ -18,7 +18,10 @@ class ComposersController < ApplicationController
     end
 
     def update 
-
+        @composer = Composer.find(params[:id])
+        binding.pry
+        @composer.update(composer_params)
+        redirect_to works_path
     end
 
     private

@@ -11,9 +11,9 @@
     <%= f.text_field :last_name %>
     <hr>
     <%= f.label :birth_year %>
-    <%= f.select :birth_year, 0..(Time.zone.now.year), {:prompt => "Please Select", :include_blank => false}  %><br>
+    <%= f.date_select :birth_year, {:prompt => "Please Select", :include_blank => false, :start_year => (Date.today.year-2021), :max_years_allowed=> 3000, :discard_day => true, :discard_month => true, :discard_time => true}  %><br>
     <%= f.label :death_year %>
-    <%= f.select :birth_year, 0..(Time.zone.now.year), {:prompt => "Please Select", :include_blank => false}  %><br>
+    <%= f.date_select :death_year, {:prompt => "Please Select", :include_blank => false, :start_year => (Date.today.year-2021), :max_years_allowed=> 3000, :discard_day => true, :discard_month => true, :discard_time => true}  %><br>
     <hr>
     <%= f.label :epoch %>
     <%= f.text_field :epoch%>
