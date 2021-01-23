@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
     before_action :set_service, only: [:show, :new, :edit, :update]
+    before_action :set_service_works, only: [:create, :update]
     
 
     def show
@@ -16,10 +17,9 @@ class ServicesController < ApplicationController
 
     def create
         @service = Service.new(service_params)
-        service_works = service_works_params[:service_works_attributes]
-
+        
         if @service.save
-            create_or_update_service_works(service_works)
+            create_or_update_service_works(@service_works)
             redirect_to service_path(@service)
         else
             render :new
@@ -44,12 +44,10 @@ class ServicesController < ApplicationController
     end
 
     def update
-        service_works = service_works_params[:service_works_attributes]
-
         if !@service.update(service_params) #if a service does not update render :edit form
             render :edit
         else
-            create_or_update_service_works(service_works)
+            create_or_update_service_works(@service_works)
             redirect_to service_path(@service)
         end
     end
@@ -94,6 +92,10 @@ class ServicesController < ApplicationController
         else
             @service = Service.new 
         end
+    end
+
+    def set_service_works
+        @service_works = service_works_params[:service_works_attributes]
     end
 
     def duplicate_service_works(service, dup_service_id)
