@@ -53,7 +53,7 @@ class WorksController < ApplicationController
         @program = ServiceWork.new
     end
 
-    private 
+private 
 
     def work_params
         params.require(:work).permit(:title, :instrumentation)

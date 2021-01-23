@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     current_user != nil
   end
 
-  private
+private
 
   def require_login
     unless logged_in?

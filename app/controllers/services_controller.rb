@@ -62,7 +62,7 @@ class ServicesController < ApplicationController
         end
     end
 
-    private 
+private 
 
     def service_params
         params.require(:service).permit(
