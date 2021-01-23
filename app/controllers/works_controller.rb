@@ -1,13 +1,23 @@
 class WorksController < ApplicationController
-    
+    index show new edit create update destroy
     
     def index
         @composers = Composer.all.by_last_name
     end
 
+    def show 
+        @work = Work.find(params[:id])
+    end
+
     def new
         @composer = Composer.find(params[:composer_id])
         @work = @composer.works.build
+    end
+
+    def edit
+        @composer = Composer.find(params[:composer_id])
+        @work = Work.find(params[:id])
+        
     end
 
     def create 
@@ -22,12 +32,6 @@ class WorksController < ApplicationController
         end
     end
 
-    def edit
-        @composer = Composer.find(params[:composer_id])
-        @work = Work.find(params[:id])
-        
-    end
-
     def update
         @work = Work.find(params[:id])
 
@@ -36,10 +40,6 @@ class WorksController < ApplicationController
         else
             render :edit
         end
-    end
-
-    def show 
-        @work = Work.find(params[:id])
     end
 
     def destroy

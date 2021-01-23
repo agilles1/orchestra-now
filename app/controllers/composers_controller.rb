@@ -1,7 +1,11 @@
 class ComposersController < ApplicationController
-
+    
     def new 
         @composer = Composer.new
+    end
+
+    def edit 
+        @composer = Composer.find(params[:id])
     end
 
     def create 
@@ -11,10 +15,6 @@ class ComposersController < ApplicationController
         else
             render :new
         end
-    end
-
-    def edit 
-        @composer = Composer.find(params[:id])
     end
 
     def update 

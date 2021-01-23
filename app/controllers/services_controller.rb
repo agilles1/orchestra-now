@@ -2,15 +2,14 @@ class ServicesController < ApplicationController
     before_action :set_service, only: [:show, :new, :edit, :update]
     before_action :set_service_works, only: [:create, :update]
     
+    def index 
+        @services = Service.all_chron.future
+    end
 
     def show
 
     end
     
-    def calendar
-
-    end
-
     def new
 
     end
@@ -23,19 +22,6 @@ class ServicesController < ApplicationController
             redirect_to service_path(@service)
         else
             render :new
-        end
-    end
-
-    def duplicate
-        @service = Service.find(params[:id])
-        @dup_service = @service.dup
-        
-        if @dup_service.save 
-            duplicate_service_works(@service, @dup_service.id)
-            redirect_to edit_service_path(@dup_service)
-        else 
-            flash[:error] = "Service not copied! Please try again."
-            redirect_to service_path(@service)
         end
     end
 
@@ -52,15 +38,28 @@ class ServicesController < ApplicationController
         end
     end
 
-    def index 
-        @services = Service.all_chron.future
-    end
-
     def destroy
         @service = Service.find(params[:id])
         @service.service_works.destroy_all
         @service.destroy
         redirect_to '/home'
+    end
+
+    def calendar
+
+    end
+
+    def duplicate
+        @service = Service.find(params[:id])
+        @dup_service = @service.dup
+        
+        if @dup_service.save 
+            duplicate_service_works(@service, @dup_service.id)
+            redirect_to edit_service_path(@dup_service)
+        else 
+            flash[:error] = "Service not copied! Please try again."
+            redirect_to service_path(@service)
+        end
     end
 
     private 
