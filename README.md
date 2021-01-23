@@ -1,6 +1,6 @@
 # orchestraNow
 
-orchestraNOW is a orchestra service management platform. 
+orchestraNOW is an orchestra service management platform. Users can create Services (rehearsal or concerts) and assign repertoire (Works) to those Services. Additonally, the intention is to have a catalog of works available to perform, so Composers and Works may be added by the User.
 
 ## Installation
 
