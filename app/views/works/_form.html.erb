@@ -1,0 +1,7 @@
+<%= form_for [@composer, @work] do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :instrumentation %>
+    <%= f.text_field :instrumentation %>
+    <%= f.submit %>
+<% end %>

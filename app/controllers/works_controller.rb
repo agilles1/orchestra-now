@@ -14,11 +14,27 @@ class WorksController < ApplicationController
         @composer = Composer.find(params[:composer_id])
         @work = Work.new(work_params)
         @work.composer_id = @composer.id
-        binding.pry
+
         if @work.save
             redirect_to composer_work_path(@composer, @work)
         else
             render :new
+        end
+    end
+
+    def edit
+        @composer = Composer.find(params[:composer_id])
+        @work = Work.find(params[:id])
+        
+    end
+
+    def update
+        @work = Work.find(params[:id])
+
+        if @work.update(work_params)
+            redirect_to composer_work_path(@work)
+        else
+            render :edit
         end
     end
 

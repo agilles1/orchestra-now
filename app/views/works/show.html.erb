@@ -1,4 +1,4 @@
-<h2> <%= @work.title %> </h2>
+<h2> <%= @work.title %> <%=link_to "Edit", edit_composer_work_path(@work.composer, @work)%></h2>
 
 <b>Composer:</b> <%= @work.composer.full_name %><br>
 <b>Birth:</b> <%=composer_year_format(@work.composer.birth_year)%><br>

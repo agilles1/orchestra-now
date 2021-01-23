@@ -19,12 +19,11 @@ class ComposersController < ApplicationController
 
     def update 
         @composer = Composer.find(params[:id])
-        binding.pry
         @composer.update(composer_params)
         redirect_to works_path
     end
 
-    private
+private
 
     def composer_params
         params.require(:composer).permit(:full_name, :last_name, :birth_year, :death_year, :epoch)

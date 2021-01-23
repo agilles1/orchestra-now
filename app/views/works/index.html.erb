@@ -16,7 +16,7 @@
         <hr>
       
             <% composer.works.each do |work| %>
-                <%=link_to work.title, composer_work_path(composer, work)%> <%= link_to "Delete", [composer, work], method: :delete, data: { confirm: "Are you sure you want to delete this Work?" } %> <br>
+                <%=link_to work.title, composer_work_path(composer, work)%> <%= link_to "Delete", [composer, work], method: :delete, data: { confirm: "Are you sure you want to delete this Work?" } %> <%=link_to "Edit", edit_composer_work_path(composer, work)%> <br>
             <% end %>
      
     </div>
