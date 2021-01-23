@@ -110,7 +110,9 @@ class ServicesController < ApplicationController
     end
 
     def set_service
-        if params[:id]
+        if !Service.exists?(params[:id])
+            redirect_to '/home'
+        elsif params[:id]
             @service = Service.find(params[:id])
         else
             @service = Service.new 

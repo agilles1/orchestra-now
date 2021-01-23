@@ -1,3 +1,9 @@
+<%if @work.errors.any? %>
+    <% @work.errors.full_messages.each do |error| %>
+        <p><i><%=error%><i></p>
+    <% end %>
+<% end %>
+
 <%= form_for [@composer, @work] do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>

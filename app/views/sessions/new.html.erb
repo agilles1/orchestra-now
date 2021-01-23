@@ -1,6 +1,6 @@
 <b><i><%=flash[:error]%></i></b>
 
-<%= form_tag '/login' do -%>
+<%= form_tag login_post_path do -%>
     <%= label_tag :email %><br>
     <%= text_field_tag :email%><br>
     <%= label_tag :password %><br>
