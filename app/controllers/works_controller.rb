@@ -3,7 +3,11 @@ class WorksController < ApplicationController
     before_action :set_work, only: [:show, :edit, :update, :destroy]
     
     def index
-        @composers = Composer.all.by_last_name
+        if params[:search]
+            @composers = Composer.search(params[:search]).by_last_name
+        else
+            @composers = Composer.all.by_last_name
+        end
     end
 
     def show 

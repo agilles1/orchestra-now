@@ -38,7 +38,7 @@ class ServicesController < ApplicationController
         end
     end
 
-    def destroy
+    def destroy #try dependent destroy
         @service = Service.find(params[:id])
         @service.service_works.destroy_all
         @service.destroy
@@ -84,7 +84,7 @@ private
     end
 
     def set_service
-        if params[:id] && !Service.exists?(params[:id])
+        if params[:id] && !Service.exists?(params[:id]) #find_by is an option
             redirect_to '/home'
         elsif params[:id]
             @service = Service.find(params[:id])

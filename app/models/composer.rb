@@ -8,4 +8,7 @@ class Composer < ApplicationRecord
         self.works.order(:title)
     end
 
+    def self.search(params)
+       self.where('last_name LIKE ?', "%#{params}%")
+    end
 end

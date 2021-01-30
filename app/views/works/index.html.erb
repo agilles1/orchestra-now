@@ -1,5 +1,11 @@
 <h2> Works Library <%= link_to "Add Composer", new_composer_path %>  </h2> 
 
+<%= form_tag(works_path, method: :get) do %>
+    <%= text_field_tag 'search' %>
+    <%= submit_tag 'Search'  %>
+<% end %>
+
+
 
 <hr>
 <% @composers.each do |composer|%>

@@ -11,6 +11,6 @@ class User < ApplicationRecord
           user.email = auth.info.email
           user.password = SecureRandom.hex
         end
-      end
+    end
     
 end
